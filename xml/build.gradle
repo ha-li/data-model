@@ -1,0 +1,37 @@
+description = 'xsd'
+
+configurations {
+   jaxb
+}
+
+repositories {
+   mavenCentral ()
+}
+
+dependencies {
+   jaxb 'com.sun.xml.bind:jaxb-xjc:2.2.7-b41'
+   jaxb 'com.sun.xml.bind:jaxb-impl:2.2.7-b41'
+   jaxb 'javax.xml.bind:jaxb-api:2.2.7'
+   testCompile 'junit:junit:4.12'
+}
+
+ext.targetDir = project.file ("${project.buildDir}/generated-sources")
+task jaxb () {
+
+   doLast {
+      targetDir.mkdirs()
+      ant.taskdef(
+         name: 'xjc',
+         classname: 'com.sun.tools.xjc.XJCTask',
+         classpath: configurations.jaxb.asPath
+      )
+
+      ant.xjc(
+          destDir: targetDir,
+          package: 'com.gecko.domain',
+          schema: 'src/main/resources/Animals.xsd'
+      )
+   }
+}
+
+compileJava.dependsOn jaxb
