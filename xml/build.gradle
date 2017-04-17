@@ -8,6 +8,15 @@ repositories {
    mavenCentral ()
 }
 
+ext.targetDir = project.file ("${project.buildDir}/generated-sources")
+sourceSets {
+   main {
+      java {
+         srcDir targetDir
+      }
+   }
+}
+
 dependencies {
    jaxb 'com.sun.xml.bind:jaxb-xjc:2.2.7-b41'
    jaxb 'com.sun.xml.bind:jaxb-impl:2.2.7-b41'
@@ -15,7 +24,6 @@ dependencies {
    testCompile 'junit:junit:4.12'
 }
 
-ext.targetDir = project.file ("${project.buildDir}/generated-sources")
 ext.schemaDir = project.file ("${projectDir}/src/main/resources/schemas")
 task jaxb () {
 
@@ -27,10 +35,18 @@ task jaxb () {
          classpath: configurations.jaxb.asPath
       )
 
-      ant.xjc (destdir: targetDir, package: 'com.gecko.domain') {
+      ant.xjc (destdir: targetDir, package: 'com.gecko.domain.internal') {
+         arg(line: '-xmlschema')
+         arg(line: '-extension')
+//         arg(line: '-Xcopy-xml-element-to-getters')
          schema (dir: schemaDir, includes: "**/*.xsd")
+         binding (dir: schemaDir, includes: "binding.xml")
       }
    }
 }
 
-compileJava.dependsOn jaxb
+//generateSources dependsOn jaxb
+task generateSources (dependsOn: jaxb) {
+}
+compileJava.dependsOn generateSources
+assemble.dependsOn compileJava
