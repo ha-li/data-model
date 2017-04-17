@@ -8,7 +8,7 @@ repositories {
    mavenCentral ()
 }
 
-ext.targetDir = project.file ("${project.buildDir}/generated-sources")
+ext.targetDir = project.file ("${projectDir}/target/src")
 sourceSets {
    main {
       java {
@@ -28,6 +28,7 @@ ext.schemaDir = project.file ("${projectDir}/src/main/resources/schemas")
 task jaxb () {
 
    doLast {
+      targetDir.deleteDir()
       targetDir.mkdirs()
       ant.taskdef(
          name: 'xjc',
@@ -35,14 +36,21 @@ task jaxb () {
          classpath: configurations.jaxb.asPath
       )
 
-      ant.xjc (destdir: targetDir, package: 'com.gecko.domain.internal') {
-         arg(line: '-xmlschema')
-         arg(line: '-extension')
+      ant.xjc (destdir: targetDir) {
+         //arg(line: '-xmlschema')
+         //arg(line: '-extension')
 //         arg(line: '-Xcopy-xml-element-to-getters')
          schema (dir: schemaDir, includes: "**/*.xsd")
-         binding (dir: schemaDir, includes: "binding.xml")
+         //binding (dir: schemaDir, includes: "binding.xml")
       }
    }
 }
 compileJava.dependsOn jaxb
 assemble.dependsOn compileJava
+
+task cleanGen () {
+   doLast {
+      targetDir.deleteDir ()
+   }
+}
+clean.dependsOn cleanGen
