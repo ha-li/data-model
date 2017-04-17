@@ -44,9 +44,5 @@ task jaxb () {
       }
    }
 }
-
-//generateSources dependsOn jaxb
-task generateSources (dependsOn: jaxb) {
-}
-compileJava.dependsOn generateSources
+compileJava.dependsOn jaxb
 assemble.dependsOn compileJava
