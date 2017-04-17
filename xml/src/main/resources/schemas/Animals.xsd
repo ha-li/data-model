@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:tns="http://schema.gecko.com/anything/v1"
+           version="1.0" targetNamespace="http://schema.gecko.com/anything/v1">
 
     <xs:element name="inventory">
        <xs:complexType>
            <xs:sequence>
-               <xs:element maxOccurs="unbounded" ref="animal" />
+               <xs:element maxOccurs="unbounded" ref="tns:animal"/>
            </xs:sequence>
        </xs:complexType>
    </xs:element>
@@ -18,12 +20,12 @@
     <xs:element name="animal">
         <xs:complexType>
             <xs:sequence>
-                <xs:element ref="name" />
+                <xs:element name="name" type="xs:string"/>
                 <xs:element name="specied" type="xs:string"/>
                 <xs:element name="habitat" type="xs:string"/>
                 <xs:choice>
                     <xs:element name="food" type="xs:string"/>
-                    <xs:element ref="foodRecipe"/>
+                    <xs:element ref="tns:foodRecipe" />
                 </xs:choice>
                 <xs:element name="temperament" type="xs:string"/>
                 <xs:element name="weight" type="xs:double"/>
@@ -44,7 +46,7 @@
     <xs:element name="foodRecipe">
         <xs:complexType>
             <xs:sequence>
-                <xs:element ref="name"/>
+                <xs:element name="name" type="xs:string"/>
                 <xs:element maxOccurs="unbounded" name="ingredient" type="xs:string"/>
             </xs:sequence>
         </xs:complexType>

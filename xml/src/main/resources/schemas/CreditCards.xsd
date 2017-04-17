@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:schema version="1.0"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://schema.gecko.com/anything/v1">
 
-    <xs:element name="creditCard" type="creditCard"/>
-
-    <xs:complexType name="creditCard">
-        <xs:sequence>
-            <xs:element name="expiry-date" type="xs:string" />
-            <xs:element name="type" type="xs:string"/>
-            <xs:element name="control-number" type="xs:int"/>
-        </xs:sequence>
-        <xs:attribute name="number" type="xs:string" use="required"/>
-    </xs:complexType>
+    <xs:element name="creditCard">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="expiry-date" type="xs:string" />
+                <xs:element name="type" type="xs:string"/>
+                <xs:element name="control-number" type="xs:int"/>
+            </xs:sequence>
+            <xs:attribute name="number" type="xs:string" use="required"/>
+        </xs:complexType>
+    </xs:element>
 </xs:schema>
