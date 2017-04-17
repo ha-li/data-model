@@ -1,8 +1,8 @@
 package com.gecko;
 
-import com.gecko.domain.internal.Animal;
-import com.gecko.domain.internal.CreditCard;
-import com.gecko.domain.internal.Inventory;
+import com.gecko.schema.anything.v1.Animal;
+import com.gecko.schema.anything.v1.CreditCard;
+import com.gecko.schema.anything.v1.Inventory;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Marshaller;
@@ -14,7 +14,7 @@ import java.io.StringWriter;
 public class MarshallerFactory {
 
    public static String marshal (Object object) throws Exception {
-      JAXBContext context = JAXBContext.newInstance (object.getClass());
+      JAXBContext context = JAXBContext.newInstance ("com.gecko.schema.anything.v1");
       Marshaller marshaller = context.createMarshaller ();
       marshaller.setProperty (Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
 
@@ -46,11 +46,19 @@ public class MarshallerFactory {
       return cc;
    }
 
-   public static void main (String[] args) throws Exception {
-
+   public static void inventory () throws Exception {
       Inventory inventory = getInventory ();
       System.out.println (MarshallerFactory.marshal (inventory.getAnimal ().get(0)));
-      //MarshallerFactory.marshal (getCreditCard ());
+   }
+
+   public static void creditCard () throws Exception {
+      CreditCard cc = getCreditCard ();
+      System.out.println (MarshallerFactory.marshal(cc));
+   }
+
+   public static void main (String[] args) throws Exception {
+      creditCard ();
+      inventory ();
    }
 }
 
