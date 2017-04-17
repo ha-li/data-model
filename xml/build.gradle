@@ -48,9 +48,9 @@ task jaxb () {
 compileJava.dependsOn jaxb
 assemble.dependsOn compileJava
 
-task cleanGen () {
+task cleanJaxb () {
    doLast {
       targetDir.deleteDir ()
    }
 }
-clean.dependsOn cleanGen
+clean.dependsOn cleanJaxb

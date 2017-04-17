@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <xs:schema version="1.0"
            xmlns:xs="http://www.w3.org/2001/XMLSchema"
-           targetNamespace="http://schema.gecko.com/anything/v1">
+           targetNamespace="http://schema.gecko.com/fintech/v1">
 
     <xs:element name="creditCard">
         <xs:complexType>
