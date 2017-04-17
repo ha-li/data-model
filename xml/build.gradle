@@ -16,6 +16,7 @@ dependencies {
 }
 
 ext.targetDir = project.file ("${project.buildDir}/generated-sources")
+ext.schemaDir = project.file ("${projectDir}/src/main/resources/schemas")
 task jaxb () {
 
    doLast {
@@ -26,11 +27,9 @@ task jaxb () {
          classpath: configurations.jaxb.asPath
       )
 
-      ant.xjc(
-          destDir: targetDir,
-          package: 'com.gecko.domain',
-          schema: 'src/main/resources/Animals.xsd'
-      )
+      ant.xjc (destdir: targetDir, package: 'com.gecko.domain') {
+         schema (dir: schemaDir, includes: "**/*.xsd")
+      }
    }
 }
 
