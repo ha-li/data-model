@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:animal animalClass="mammal" xmlns:ns2="http://schema.gecko.com/zoo/v1">
+    <name>Dragex Codex Ninjex</name>
+    <specied>Ninja Fighting Dragons</specied>
+    <habitat>wetlands</habitat>
+    <food>Ninjas</food>
+    <temperament>Friendly -- except to ninjas</temperament>
+    <weight>1000.0</weight>
+</ns2:animal>

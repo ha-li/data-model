@@ -8,9 +8,9 @@ import java.io.FileNotFoundException;
 /**
  * Created by hlieu on 04/18/17.
  */
-public class FinancialUnmarshaller {
+public class ZooUnmarshaller {
 
-   private static final String XML_NS = "com.gecko.schema.fintech.v1";
+   private static final String XML_NS = "com.gecko.schema.zoo.v1";
    private static final JAXBContext JAXB_CONTEXT;
    private static final Unmarshaller UNMARSHALLER;
 
