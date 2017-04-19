@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:creditCard number="234234234234" xmlns:ns2="http://schema.gecko.com/fintech/v1">
+    <expiry-date>3/20</expiry-date>
+    <type>mastercard</type>
+    <control-number>342</control-number>
+</ns2:creditCard>
