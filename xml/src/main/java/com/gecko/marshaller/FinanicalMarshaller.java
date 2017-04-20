@@ -1,5 +1,7 @@
 package com.gecko.marshaller;
 
+import com.gecko.validation.CardValidation;
+
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Marshaller;
 import java.io.StringWriter;
@@ -18,6 +20,7 @@ public class FinanicalMarshaller {
          JAXB_CONTEXT = JAXBContext.newInstance (XML_NS);
          MARSHALLER = JAXB_CONTEXT.createMarshaller ();
          MARSHALLER.setProperty (Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
+         MARSHALLER.setEventHandler (new CardValidation ());
       } catch (Exception e) {
          e.printStackTrace ();
          throw new ExceptionInInitializerError (e);

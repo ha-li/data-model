@@ -3,6 +3,7 @@ package com.gecko.marshaller;
 import com.gecko.schema.zoo.v1.Animal;
 import com.gecko.schema.fintech.v1.CreditCard;
 import com.gecko.schema.zoo.v1.Inventory;
+import com.gecko.validation.ZooValidation;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Marshaller;
@@ -21,7 +22,12 @@ public class ZooMarshaller {
       try {
          JAXB_CONTEXT = JAXBContext.newInstance (XML_NS);
          MARSHALLER = JAXB_CONTEXT.createMarshaller ();
+
+         // makes the XML pretty printed
          MARSHALLER.setProperty (Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
+
+         MARSHALLER.setEventHandler (new ZooValidation ());
+
       } catch (Exception e) {
          e.printStackTrace ();
          throw new ExceptionInInitializerError (e);

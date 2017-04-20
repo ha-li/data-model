@@ -37,9 +37,9 @@ task jaxb () {
       )
 
       ant.xjc (destdir: targetDir) {
-         //arg(line: '-xmlschema')
-         //arg(line: '-extension')
-//         arg(line: '-Xcopy-xml-element-to-getters')
+         arg(line: '-xmlschema')  // force the input file to be a xml schema, this is default
+         //arg(line: '-extension')  // permit vendor specific extensions to jaxb, disable
+//         arg(line: '-Xcopy-xml-element-to-getters')  // not in jaxb 2.0
          schema (dir: schemaDir, includes: "**/*.xsd")
          //binding (dir: schemaDir, includes: "binding.xml")
       }
