@@ -28,4 +28,5 @@ public class EmployeeUnMarshaller {
    public static List<Employee> unmarshallAll (String fileName) throws IOException {
       return JACKSON_OBJ_MAPPER.readValue(new File(fileName), COLLECTION_TYPE);
    }
+
 }

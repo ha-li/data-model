@@ -1,6 +1,7 @@
 package com.gecko.json;
 
 import com.gecko.json.domain.Employee;
+import com.gecko.json.marshaller.EmployeeMarshaller;
 import com.gecko.json.unmarshaller.EmployeeUnMarshaller;
 
 import java.net.URL;
@@ -21,5 +22,8 @@ public class UnMarshallMain {
       for (Employee e : listEmployees) {
          System.out.println (e.getFirstName ());
       }
+
+      String json = EmployeeMarshaller.marshal(employee);
+      System.out.println (json);
    }
 }
