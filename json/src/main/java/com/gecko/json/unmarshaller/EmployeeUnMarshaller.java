@@ -1,22 +1,31 @@
 package com.gecko.json.unmarshaller;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.gecko.json.domain.Employee;
 
 import java.io.File;
 import java.io.IOException;
-import java.net.URL;
+import java.util.List;
 
 /**
  * Created by hlieu on 04/20/17.
  */
 public class EmployeeUnMarshaller {
-   public static void main (String[] args) throws IOException {
-      URL url = ClassLoader.getSystemResource ("employee.json");
-      System.out.println (url.toString ());
-      ObjectMapper mapper = new ObjectMapper ();
-      String fileName = url.getFile ();
-      Employee employee = mapper.readValue(new File (fileName), Employee.class);
-      System.out.println (employee.getFirstName ());
+
+   private static com.fasterxml.jackson.databind.ObjectMapper JACKSON_OBJ_MAPPER;
+   private static com.fasterxml.jackson.databind.type.CollectionType COLLECTION_TYPE;
+
+   private static Employee mInstance = new Employee ();
+
+   static {
+      JACKSON_OBJ_MAPPER = new com.fasterxml.jackson.databind.ObjectMapper ();
+      COLLECTION_TYPE = JACKSON_OBJ_MAPPER.getTypeFactory ().constructCollectionType (List.class, mInstance.getClass());
+   }
+
+   public static Employee unmarshall (String fileName) throws IOException {
+      return JACKSON_OBJ_MAPPER.readValue(new File (fileName), mInstance.getClass ());
+   }
+
+   public static List<Employee> unmarshallAll (String fileName) throws IOException {
+      return JACKSON_OBJ_MAPPER.readValue(new File(fileName), COLLECTION_TYPE);
    }
 }

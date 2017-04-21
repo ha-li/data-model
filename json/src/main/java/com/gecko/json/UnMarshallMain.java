@@ -1,0 +1,25 @@
+package com.gecko.json;
+
+import com.gecko.json.domain.Employee;
+import com.gecko.json.unmarshaller.EmployeeUnMarshaller;
+
+import java.net.URL;
+import java.util.List;
+
+/**
+ * Created by hlieu on 04/20/17.
+ */
+public class UnMarshallMain {
+   public static void main (String[] args) throws Exception {
+
+      URL url = ClassLoader.getSystemResource ("employee.json");
+      Employee employee = EmployeeUnMarshaller.unmarshall (url.getFile());
+      System.out.println (employee.getAge ());
+
+      url = ClassLoader.getSystemResource ("employees-array.json");
+      List<Employee> listEmployees = EmployeeUnMarshaller.unmarshallAll (url.getFile());
+      for (Employee e : listEmployees) {
+         System.out.println (e.getFirstName ());
+      }
+   }
+}
