@@ -1,0 +1,10 @@
+description = 'Jackson Json 2 Processing'
+
+repositories {
+   mavenCentral ()
+}
+
+dependencies {
+   compile 'com.fasterxml.jackson.core:jackson-databind:2.8.0'
+   testCompile 'junit:junit:4.12'
+}
