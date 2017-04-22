@@ -1,7 +1,7 @@
 package com.gecko.json;
 
 import com.gecko.json.domain.Employee;
-import com.gecko.json.marshaller.EmployeeMarshaller;
+import com.gecko.json.marshaller.JsonMarshaller;
 import com.gecko.json.unmarshaller.EmployeeUnMarshaller;
 
 import java.net.URL;
@@ -11,6 +11,9 @@ import java.util.List;
  * Created by hlieu on 04/20/17.
  */
 public class UnMarshallMain {
+
+
+
    public static void main (String[] args) throws Exception {
 
       URL url = ClassLoader.getSystemResource ("employee.json");
@@ -23,7 +26,7 @@ public class UnMarshallMain {
          System.out.println (e.getFirstName ());
       }
 
-      String json = EmployeeMarshaller.marshal(employee);
+      String json = JsonMarshaller.marshal(employee);
       System.out.println (json);
    }
 }

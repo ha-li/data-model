@@ -1,13 +1,14 @@
 package com.gecko.json.marshaller;
 
-import com.gecko.json.domain.Employee;
-
 import java.io.StringWriter;
 
 /**
+ * Marshalls any object to json.
+ *
+ *
  * Created by hlieu on 04/20/17.
  */
-public class EmployeeMarshaller {
+public class JsonMarshaller {
 
    private static com.fasterxml.jackson.databind.ObjectMapper OBJ_MAPPER;
 
@@ -15,10 +16,15 @@ public class EmployeeMarshaller {
       OBJ_MAPPER = new com.fasterxml.jackson.databind.ObjectMapper ();
    }
 
-   public static String marshal (Employee e) {
+   /**
+    * Marshalls any object into json using the java bean conventions.
+    * @param object
+    * @return
+    */
+   public static String marshal (Object object) {
       StringWriter sw = new StringWriter ();
       try {
-         OBJ_MAPPER.writeValue (sw, e);
+         OBJ_MAPPER.writeValue (sw, object);
       } catch (Exception ex) {
          ex.printStackTrace ();
          return null;
