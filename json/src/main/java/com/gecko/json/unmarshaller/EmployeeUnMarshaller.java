@@ -29,4 +29,8 @@ public class EmployeeUnMarshaller {
       return JACKSON_OBJ_MAPPER.readValue(new File(fileName), COLLECTION_TYPE);
    }
 
+   public static <T> T unmarshall (String fileName, T t) throws IOException {
+      return (T) JACKSON_OBJ_MAPPER.readValue(new File (fileName), t.getClass ());
+   }
+
 }

@@ -1,0 +1,12 @@
+{
+  "employee":
+  {
+    "firstName":"Paul",
+    "lastName":"Michelson",
+    "age":51,
+    "married":null
+  },
+  "random-strings":"funny things",
+  "number":183,
+  "what-is-this" : "Who knows"
+}
