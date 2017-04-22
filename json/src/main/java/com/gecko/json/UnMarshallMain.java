@@ -12,9 +12,7 @@ import java.util.List;
  * Created by hlieu on 04/20/17.
  */
 public class UnMarshallMain {
-
-
-
+   
    public static void main (String[] args) throws Exception {
 
       URL url = ClassLoader.getSystemResource ("employee.json");
