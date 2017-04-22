@@ -1,7 +1,7 @@
 package com.gecko.json;
 
 import com.gecko.json.domain.Unknown;
-import com.gecko.json.unmarshaller.EmployeeUnMarshaller;
+import com.gecko.json.unmarshaller.JsonUnMarshaller;
 
 import java.io.IOException;
 import java.net.URL;
@@ -18,7 +18,7 @@ public class JacksonAnnotationsExample {
       // Unmarshalling to a java pojo shoud fail, but for the annotation
       // @JsonIgnoreProperties (ignoreUnknown=true)
       URL url = ClassLoader.getSystemResource ("unknown.json");
-      Unknown u = EmployeeUnMarshaller.unmarshall (url.getFile (), new Unknown());
+      Unknown u = JsonUnMarshaller.unmarshall (url.getFile (), new Unknown());
       System.out.println (u.getField1 ());
    }
 }

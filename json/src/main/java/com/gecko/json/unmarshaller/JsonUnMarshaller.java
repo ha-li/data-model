@@ -4,12 +4,13 @@ import com.gecko.json.domain.Employee;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Collection;
 import java.util.List;
 
 /**
  * Created by hlieu on 04/20/17.
  */
-public class EmployeeUnMarshaller {
+public class JsonUnMarshaller {
 
    private static com.fasterxml.jackson.databind.ObjectMapper JACKSON_OBJ_MAPPER;
    private static com.fasterxml.jackson.databind.type.CollectionType COLLECTION_TYPE;
@@ -18,14 +19,12 @@ public class EmployeeUnMarshaller {
 
    static {
       JACKSON_OBJ_MAPPER = new com.fasterxml.jackson.databind.ObjectMapper ();
+
+      // need to fix this -- right now it assumes its an Employee...
       COLLECTION_TYPE = JACKSON_OBJ_MAPPER.getTypeFactory ().constructCollectionType (List.class, mInstance.getClass());
    }
 
-   public static Employee unmarshall (String fileName) throws IOException {
-      return JACKSON_OBJ_MAPPER.readValue(new File (fileName), mInstance.getClass ());
-   }
-
-   public static List<Employee> unmarshallAll (String fileName) throws IOException {
+   public static <T> List<T> unmarshallAll (String fileName, Collection<T> collection) throws IOException {
       return JACKSON_OBJ_MAPPER.readValue(new File(fileName), COLLECTION_TYPE);
    }
 

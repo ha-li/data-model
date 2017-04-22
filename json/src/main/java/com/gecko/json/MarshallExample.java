@@ -3,7 +3,7 @@ package com.gecko.json;
 import com.gecko.json.domain.Employee;
 import com.gecko.json.domain.Unknown;
 import com.gecko.json.marshaller.JsonMarshaller;
-import com.gecko.json.unmarshaller.EmployeeUnMarshaller;
+import com.gecko.json.unmarshaller.JsonUnMarshaller;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -16,7 +16,7 @@ public class MarshallExample {
 
    public static Employee employee () throws Exception {
       URL url = ClassLoader.getSystemResource ("employee.json");
-      Employee employee = EmployeeUnMarshaller.unmarshall (url.getFile ());
+      Employee employee = JsonUnMarshaller.unmarshall (url.getFile (), new Employee());
       String json = JsonMarshaller.marshal (employee);
       System.out.println (json);
       return employee;
