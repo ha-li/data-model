@@ -1,0 +1,10 @@
+description = 'Yaml 1.1 Processing'
+
+repositories {
+   mavenCentral ()
+}
+
+dependencies {
+   compile 'com.esotericsoftware.yamlbeans:yamlbeans:1.11'
+   testCompile 'junit:junit:4.12'
+}
