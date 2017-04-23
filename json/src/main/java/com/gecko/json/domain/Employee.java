@@ -1,12 +1,22 @@
 package com.gecko.json.domain;
 
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 /**
  * Created by hlieu on 04/20/17.
  */
 public class Employee {
+   @NotNull @Size (max=250)
    private String firstName;
+
+   @NotNull
    private String lastName;
+
+   @NotNull @Min (0)
    private int age;
+
    private Boolean married;
 
    public String getFirstName () {
@@ -40,4 +50,5 @@ public class Employee {
    public void setMarried (Boolean married) {
       this.married = married;
    }
+
 }

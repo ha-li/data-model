@@ -5,9 +5,12 @@ import com.gecko.json.domain.Unknown;
 import com.gecko.json.marshaller.JsonMarshaller;
 import com.gecko.json.unmarshaller.JsonUnMarshaller;
 
+import javax.validation.ConstraintViolation;
+import javax.validation.ConstraintViolationException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by hlieu on 04/22/17.
@@ -16,7 +19,17 @@ public class MarshallExample {
 
    public static Employee employee () throws Exception {
       URL url = ClassLoader.getSystemResource ("employee.json");
-      Employee employee = JsonUnMarshaller.unmarshall (url.getFile (), new Employee());
+
+      Employee employee = null;
+      try {
+         employee = JsonUnMarshaller.unmarshall (url.getFile (), new Employee ());
+      } catch (ConstraintViolationException e) {
+         Set<ConstraintViolation<?>> violations = e.getConstraintViolations ();
+         for (ConstraintViolation<?> infraction: violations) {
+            System.out.println ("Violation: " + infraction.getPropertyPath () + " " + infraction.getMessage () + " in object " + infraction.getRootBeanClass ());
+         }
+      }
+
       String json = JsonMarshaller.marshal (employee);
       System.out.println (json);
       return employee;

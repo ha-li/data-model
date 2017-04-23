@@ -1,5 +1,5 @@
 {
-  "firstName" : "John",
+  "firstName" : null,
   "lastName" : "McBean",
   "age" : 34,
   "married" : true
