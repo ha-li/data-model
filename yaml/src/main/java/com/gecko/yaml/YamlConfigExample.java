@@ -14,7 +14,7 @@ public class YamlConfigExample {
    public static void main (String[] args) throws Exception {
       YamlConfig yamlConfig = new YamlConfig ();
 
-      URL url = ClassLoader.getSystemResource ("config.yaml");
+      URL url = ClassLoader.getSystemResource ("bruce.yaml");
       YamlReader reader = new YamlReader (new FileReader (url.getFile()));
       Object object = reader.read ();
       System.out.println (object);

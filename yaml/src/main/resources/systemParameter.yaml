@@ -1,0 +1,24 @@
+!SystemParameters
+parameters:
+- !SystemParameter
+ parameter: refresh-token
+ category: System Parameter
+ defaultValue: 1
+ cache: false
+ envs:
+ - env: local
+   value: 2
+ - env: dev
+   value: 1
+- !SystemParameter
+ parameter: token2
+ category: System Parameter
+ defaultValue: false
+ cache: false
+ envs:
+  - env: local
+    value: true
+  - env: dev
+    value: false
+
+
