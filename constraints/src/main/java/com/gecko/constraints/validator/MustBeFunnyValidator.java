@@ -1,5 +1,7 @@
-package com.gecko.constraints;
+package com.gecko.constraints.validator;
 
+
+import com.gecko.constraints.MustBeFunny;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
