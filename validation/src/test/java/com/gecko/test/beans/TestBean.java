@@ -5,7 +5,11 @@ import javax.validation.constraints.AssertTrue;
 import javax.validation.constraints.DecimalMax;
 import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.Digits;
+import javax.validation.constraints.Future;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Past;
 import java.math.BigDecimal;
+import java.util.Date;
 
 /**
  * Created by hlieu on 04/28/17.
@@ -23,6 +27,39 @@ public class TestBean {
 
    @Digits (integer=2, fraction=3)
    private BigDecimal pValue;
+
+   @Future
+   private Date offload;
+
+   @Past
+   private Date createdDate;
+
+   @Max (value=4)
+   BigDecimal count;
+
+   public BigDecimal getCount () {
+      return count;
+   }
+
+   public void setCount (BigDecimal count) {
+      this.count = count;
+   }
+
+   public Date getCreatedDate () {
+      return createdDate;
+   }
+
+   public void setCreatedDate (Date createdDate) {
+      this.createdDate = createdDate;
+   }
+
+   public Date getOffload () {
+      return offload;
+   }
+
+   public void setOffload (Date offload) {
+      this.offload = offload;
+   }
 
    public BigDecimal getpValue () {
       return pValue;
