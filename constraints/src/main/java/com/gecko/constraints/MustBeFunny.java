@@ -1,4 +1,4 @@
-package com.gecko.validation.constraint;
+package com.gecko.constraints;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;
@@ -17,7 +17,9 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @Documented
 @Constraint (validatedBy = MustBeFunnyValidator.class)
 public @interface MustBeFunny {
+
    String message () default "is not \"funny\"";
    Class<?> [] groups () default {};
    Class<? extends Payload>[] payload () default {};
+
 }

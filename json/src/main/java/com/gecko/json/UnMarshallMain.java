@@ -20,7 +20,7 @@ public class UnMarshallMain {
       System.out.println (employee.getAge ());
 
       url = ClassLoader.getSystemResource ("employees-array.json");
-      List<Employee> listEmployees = JsonUnMarshaller.unmarshallAll (url.getFile(), new ArrayList<Employee> ());
+      List<Employee> listEmployees = JsonUnMarshaller.unmarshallAll (url.getFile(), new ArrayList<Employee> (), new Employee ());
       for (Employee e : listEmployees) {
          System.out.println (e.getFirstName ());
       }

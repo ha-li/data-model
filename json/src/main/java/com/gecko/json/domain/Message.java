@@ -1,6 +1,6 @@
 package com.gecko.json.domain;
 
-import com.gecko.validation.constraint.MustBeFunny;
+import com.gecko.constraints.MustBeFunny;
 
 /**
  * Created by hlieu on 04/23/17.

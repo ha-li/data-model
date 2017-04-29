@@ -1,4 +1,5 @@
-package com.gecko.validation.constraint;
+package com.gecko.constraints;
+
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
@@ -13,7 +14,8 @@ public class MustBeFunnyValidator implements ConstraintValidator<MustBeFunny, St
    public void initialize (MustBeFunny parameters) {
    }
 
+   @Override
    public boolean isValid(String object, ConstraintValidatorContext constraintValidatorContext) {
-      return object.equalsIgnoreCase ("funny");
+      return object == null || object.equalsIgnoreCase ("funny");
    }
 }

@@ -1,14 +1,12 @@
-description = 'Jackson Json 2 Processing'
+description = 'Bean Validation Example'
 
 repositories {
    mavenCentral ()
 }
 
 dependencies {
-   compile project (':constraints')
 
-   compile 'com.fasterxml.jackson.core:jackson-databind:2.8.0'
-   compile 'com.fasterxml.jackson.core:jackson-annotations:2.8.0'
+   compile project (':json')
    compile 'org.hibernate:hibernate-validator:5.4.1.Final'
    // an el impl is req by hib val
    compile 'org.glassfish:javax.el:3.0.1-b08'
