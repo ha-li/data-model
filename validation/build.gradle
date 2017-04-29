@@ -1,3 +1,5 @@
+// a example of bena validation, both custom validations and
+// javax validation builts ins, as well as hibernate custom builts
 description = 'Bean Validation Example'
 
 repositories {

@@ -21,7 +21,7 @@ public class MustBeFunnyExample {
       try {
 
          message = JsonUnMarshaller.unmarshall (fileName, new Message ());
-         FunnyValidator.validate (message);
+         UniversalValidator.validate (message);
 
       } catch (IOException e) {
          e.printStackTrace ();

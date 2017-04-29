@@ -14,14 +14,14 @@ public class FunnyValidatorTest {
    public void test_validation_exception () {
       Message notFunny = new Message ();
       notFunny.setStr ("some random thoughts");
-      FunnyValidator.validate (notFunny);
+      UniversalValidator.validate (notFunny);
    }
 
    @Test
    public void test_not_exception () {
       Message funny = new Message ();
       funny.setStr ("funny");
-      FunnyValidator.validate (funny);
+      UniversalValidator.validate (funny);
    }
 
    @Test
@@ -30,6 +30,6 @@ public class FunnyValidatorTest {
 
       Message funny = new Message ();
       funny.setStr (null);
-      FunnyValidator.validate (funny);
+      UniversalValidator.validate (funny);
    }
 }

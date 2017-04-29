@@ -10,7 +10,7 @@ import java.util.Set;
 /**
  * Created by hlieu on 04/28/17.
  */
-public class FunnyValidator {
+public class UniversalValidator {
 
    private static ValidatorFactory validatorFactory;
    private static Validator validator;
