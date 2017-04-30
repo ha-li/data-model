@@ -8,6 +8,7 @@ repositories {
 
 dependencies {
 
+   compile project (':constraints-api')
    compile project (':json')
    compile 'org.hibernate:hibernate-validator:5.4.1.Final'
    // an el impl is req by hib val

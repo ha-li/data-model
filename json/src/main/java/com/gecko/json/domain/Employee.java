@@ -3,11 +3,16 @@ package com.gecko.json.domain;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.Date;
 
 /**
  * Created by hlieu on 04/20/17.
  */
 public class Employee {
+   private Date interviewDate;
+   private Date hireDate;
+   private Date exitDate;
+
    @NotNull @Size (max=250)
    private String firstName;
 
@@ -18,6 +23,9 @@ public class Employee {
    private int age;
 
    private Boolean married;
+
+   public Employee () {
+   }
 
    public String getFirstName () {
       return firstName;
