@@ -28,14 +28,14 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
  *
  * Created by hlieu on 04/30/17.
  */
-@NotNull
+//@NotNull
 @Size (min=7)
 @Pattern (regexp = "[a-z]+@[a-z]+.[a-z]+")
 @Documented
 @Target ({FIELD, ANNOTATION_TYPE, METHOD, PARAMETER, CONSTRUCTOR})
 @Retention (RUNTIME)
 @Constraint (validatedBy = {})
-@ReportAsSingleViolation  // causes early termination 
+@ReportAsSingleViolation  // causes early termination
 public @interface Email {
    String message () default "Email address is not valid";
    Class <?>[] groups () default {};

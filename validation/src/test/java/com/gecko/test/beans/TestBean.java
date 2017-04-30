@@ -1,6 +1,7 @@
 package com.gecko.test.beans;
 
 import com.gecko.constraints.Email;
+import com.gecko.constraints.URL;
 
 import javax.validation.constraints.AssertFalse;
 import javax.validation.constraints.AssertTrue;
@@ -46,6 +47,28 @@ public class TestBean {
 
    @Email
    private String email;
+
+   @URL (protocol="http", host="www.home.com", port=80)
+   private String personalWeb;
+
+   @URL (protocol="ftp", port=21)
+   private String personalFtp;
+
+   public String getPersonalWeb () {
+      return personalWeb;
+   }
+
+   public void setPersonalWeb (String personalWeb) {
+      this.personalWeb = personalWeb;
+   }
+
+   public String getPersonalFtp () {
+      return personalFtp;
+   }
+
+   public void setPersonalFtp (String personalFtp) {
+      this.personalFtp = personalFtp;
+   }
 
    public String getEmail () {
       return email;
