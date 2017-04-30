@@ -8,8 +8,10 @@ import javax.validation.constraints.Digits;
 import javax.validation.constraints.Future;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Past;
+import javax.validation.constraints.Size;
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by hlieu on 04/28/17.
@@ -36,6 +38,17 @@ public class TestBean {
 
    @Max (value=4)
    BigDecimal count;
+
+   @Size (min=1, max=5)
+   private List<Integer> all;
+
+   public List<Integer> getAll () {
+      return all;
+   }
+
+   public void setAll (List<Integer> all) {
+      this.all = all;
+   }
 
    public BigDecimal getCount () {
       return count;

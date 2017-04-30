@@ -1,5 +1,7 @@
 package com.gecko.json.domain;
 
+import com.gecko.constraints.ChronologicalOrder;
+
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -8,6 +10,7 @@ import java.util.Date;
 /**
  * Created by hlieu on 04/20/17.
  */
+@ChronologicalOrder
 public class Employee {
    private Date interviewDate;
    private Date hireDate;

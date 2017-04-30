@@ -9,5 +9,6 @@ repositories {
 }
 
 dependencies {
+   // compile project (':json')
    compile 'javax.validation:validation-api:1.1.0.Final'
 }
