@@ -2,6 +2,7 @@ package com.gecko.constraints;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;
+import javax.validation.ReportAsSingleViolation;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
@@ -24,7 +25,7 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
  * As best practice, your constraints should also add
  * ANNOTATION_TYPE as a @Target so that it can be used
  * in an aggregate annotation also.
- * 
+ *
  * Created by hlieu on 04/30/17.
  */
 @NotNull
@@ -34,6 +35,7 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @Target ({FIELD, ANNOTATION_TYPE, METHOD, PARAMETER, CONSTRUCTOR})
 @Retention (RUNTIME)
 @Constraint (validatedBy = {})
+@ReportAsSingleViolation  // causes early termination 
 public @interface Email {
    String message () default "Email address is not valid";
    Class <?>[] groups () default {};
