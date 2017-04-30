@@ -1,5 +1,7 @@
 package com.gecko.test.beans;
 
+import com.gecko.constraints.Email;
+
 import javax.validation.constraints.AssertFalse;
 import javax.validation.constraints.AssertTrue;
 import javax.validation.constraints.DecimalMax;
@@ -41,6 +43,17 @@ public class TestBean {
 
    @Size (min=1, max=5)
    private List<Integer> all;
+
+   @Email
+   private String email;
+
+   public String getEmail () {
+      return email;
+   }
+
+   public void setEmail (String email) {
+      this.email = email;
+   }
 
    public List<Integer> getAll () {
       return all;
