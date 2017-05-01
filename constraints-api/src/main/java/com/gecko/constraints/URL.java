@@ -20,7 +20,8 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @Retention (RUNTIME)
 @Constraint (validatedBy={UrlValidationForString.class, UrlValidationForUrl.class})
 public @interface URL {
-   String message () default "Invalid Url";
+   //String message () default "Invalid Url";
+   String message () default "{com.gecko.constraints.URL.message}";
    Class <?>[] groups () default {};
    Class <? extends Payload>[] payload () default {};
 
