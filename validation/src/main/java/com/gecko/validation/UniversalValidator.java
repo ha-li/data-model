@@ -5,6 +5,7 @@ import javax.validation.ConstraintViolationException;
 import javax.validation.Validation;
 import javax.validation.Validator;
 import javax.validation.ValidatorFactory;
+import java.io.PrintStream;
 import java.util.Set;
 
 /**
@@ -25,6 +26,12 @@ public class UniversalValidator {
       Set<ConstraintViolation<T>> violations = validator.validate(t);
       if(!violations.isEmpty ()) {
          throw new ConstraintViolationException ("Invalid object based on constraints violation.", violations);
+      }
+   }
+
+   public static void violation (ConstraintViolationException exception, PrintStream out) {
+      for (ConstraintViolation violation : exception.getConstraintViolations ()) {
+         out.println (violation.getRootBeanClass () + ": " + violation.getPropertyPath () + " " + violation.getMessage ());
       }
    }
 

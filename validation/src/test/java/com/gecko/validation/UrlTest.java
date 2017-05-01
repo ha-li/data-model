@@ -3,7 +3,6 @@ package com.gecko.validation;
 import com.gecko.test.beans.TestBean;
 import org.junit.Test;
 
-import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
 import java.net.URL;
 
@@ -20,9 +19,7 @@ public class UrlTest {
       try {
          UniversalValidator.validate (test);
       } catch (ConstraintViolationException e) {
-         for (ConstraintViolation violation : e.getConstraintViolations ()) {
-            System.out.println (violation.getRootBean () + " " + violation.getMessage ());
-         }
+         UniversalValidator.violation (e, System.out);
          throw e;
       }
    }
@@ -36,9 +33,7 @@ public class UrlTest {
       try {
          UniversalValidator.validate (test);
       } catch (ConstraintViolationException e) {
-         for (ConstraintViolation violation : e.getConstraintViolations ()) {
-            System.out.println (violation.getRootBean () + " " + violation.getMessage ());
-         }
+         UniversalValidator.violation (e, System.out);
          throw e;
       }
    }
@@ -52,9 +47,7 @@ public class UrlTest {
       try {
          UniversalValidator.validate (test);
       } catch (ConstraintViolationException e) {
-         for (ConstraintViolation violation : e.getConstraintViolations ()) {
-            System.out.println (violation.getRootBean () + " " + violation.getMessage ());
-         }
+         UniversalValidator.violation (e, System.out);
          throw e;
       }
    }
@@ -69,9 +62,7 @@ public class UrlTest {
       try {
          UniversalValidator.validate (test);
       } catch (ConstraintViolationException e) {
-         for (ConstraintViolation violation : e.getConstraintViolations ()) {
-            System.out.println (violation.getRootBean () + " " + violation.getMessage ());
-         }
+         UniversalValidator.violation (e, System.out);
          throw e;
       }
    }
@@ -86,9 +77,7 @@ public class UrlTest {
       try {
          UniversalValidator.validate (testBean);
       } catch (ConstraintViolationException e) {
-         for (ConstraintViolation violation : e.getConstraintViolations ()) {
-            System.out.println (violation.getRootBean () + " " + violation.getMessage ());
-         }
+         UniversalValidator.violation (e, System.out);
          throw e;
       }
    }
@@ -103,9 +92,22 @@ public class UrlTest {
       try {
          UniversalValidator.validate (testBean);
       } catch (ConstraintViolationException e) {
-         for (ConstraintViolation violation : e.getConstraintViolations ()) {
-            System.out.println (violation.getRootBean () + " " + violation.getMessage ());
-         }
+         UniversalValidator.violation (e, System.out);
+         throw e;
+      }
+   }
+
+   @Test(expected = ConstraintViolationException.class)
+   public void test_url_url__multi_invalids () throws Exception {
+      TestBean testBean = new TestBean ();
+
+      URL url = new URL ("ftp://scm.aipo.net:21");
+      testBean.setAlternativeWeb (url);
+
+      try {
+         UniversalValidator.validate (testBean);
+      } catch (ConstraintViolationException e) {
+         UniversalValidator.violation (e, System.out);
          throw e;
       }
    }
