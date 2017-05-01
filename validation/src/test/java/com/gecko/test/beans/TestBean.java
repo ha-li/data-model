@@ -54,6 +54,18 @@ public class TestBean {
    @URL (protocol="ftp", port=21)
    private String personalFtp;
 
+   @URL (protocol="http", host="my.home.com", port=80)
+   private java.net.URL alternativeWeb;
+
+
+   public java.net.URL getAlternativeWeb () {
+      return alternativeWeb;
+   }
+
+   public void setAlternativeWeb (java.net.URL alternativeWeb) {
+      this.alternativeWeb = alternativeWeb;
+   }
+
    public String getPersonalWeb () {
       return personalWeb;
    }

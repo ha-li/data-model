@@ -9,7 +9,7 @@ import java.net.MalformedURLException;
 /**
  * Created by hlieu on 04/30/17.
  */
-public class UrlValidation implements ConstraintValidator<URL, String> {
+public class UrlValidationStr implements ConstraintValidator<URL, String> {
 
    private String protocol;
    private String host;

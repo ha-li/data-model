@@ -1,6 +1,7 @@
 package com.gecko.constraints;
 
-import com.gecko.constraints.validator.UrlValidation;
+import com.gecko.constraints.validator.UrlValidationStr;
+import com.gecko.constraints.validator.UrlValidationUrl;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;
@@ -17,7 +18,7 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @Documented
 @Target ({FIELD, ANNOTATION_TYPE, PARAMETER, METHOD, CONSTRUCTOR})
 @Retention (RUNTIME)
-@Constraint (validatedBy=UrlValidation.class)
+@Constraint (validatedBy={UrlValidationStr.class, UrlValidationUrl.class})
 public @interface URL {
    String message () default "Invalid Url";
    Class <?>[] groups () default {};
