@@ -1,6 +1,7 @@
 package com.gecko.json.domain;
 
 import com.gecko.constraints.ChronologicalOrder;
+import com.gecko.constraints.groups.Preliminary;
 
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
@@ -12,11 +13,13 @@ import java.util.Date;
  */
 @ChronologicalOrder
 public class Employee {
+   @NotNull(groups = Preliminary.class)
    private Date interviewDate;
    private Date hireDate;
    private Date exitDate;
 
-   @NotNull @Size (max=250)
+   @NotNull(groups=Preliminary.class)
+   @Size (max=250)
    private String firstName;
 
    @NotNull
