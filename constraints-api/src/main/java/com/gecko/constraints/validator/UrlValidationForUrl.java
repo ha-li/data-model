@@ -8,7 +8,7 @@ import javax.validation.ConstraintValidatorContext;
 /**
  * Created by hlieu on 04/30/17.
  */
-public class UrlValidationUrl implements ConstraintValidator<URL, java.net.URL> {
+public class UrlValidationForUrl implements ConstraintValidator<URL, java.net.URL> {
    private String protocol;
    private String host;
    private int port;
