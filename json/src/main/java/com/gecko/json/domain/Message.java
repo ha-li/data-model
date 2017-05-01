@@ -28,7 +28,7 @@ public class Message {
    public Boolean field;
 
    // but I can apply it to a method since @Target includes METHOD
-   @NonField
+   // @NonField
    // @NonMethod <- is is not allowed
    public String getStr () {
       return str;

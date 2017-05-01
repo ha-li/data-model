@@ -3,6 +3,7 @@ package com.gecko.validation;
 import com.gecko.test.beans.TestBean;
 import org.junit.Test;
 
+import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
 import java.math.BigDecimal;
 
@@ -16,7 +17,14 @@ public class DecimalMaxMinTest {
       TestBean test = new TestBean () ;
       test.setCorrelation (new BigDecimal (1.3));
 
-      UniversalValidator.validate(test);
+      try {
+         UniversalValidator.validate (test);
+      } catch (ConstraintViolationException e) {
+         for (ConstraintViolation violation: e.getConstraintViolations ()) {
+            System.out.println (violation.getRootBean () + " " + violation.getMessage ());
+         }
+         throw e;
+      }
    }
 
    @Test

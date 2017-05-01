@@ -30,6 +30,30 @@ public class Employee {
    public Employee () {
    }
 
+   public Date getInterviewDate () {
+      return interviewDate;
+   }
+
+   public void setInterviewDate (Date interviewDate) {
+      this.interviewDate = interviewDate;
+   }
+
+   public Date getHireDate () {
+      return hireDate;
+   }
+
+   public void setHireDate (Date hireDate) {
+      this.hireDate = hireDate;
+   }
+
+   public Date getExitDate () {
+      return exitDate;
+   }
+
+   public void setExitDate (Date exitDate) {
+      this.exitDate = exitDate;
+   }
+
    public String getFirstName () {
       return firstName;
    }

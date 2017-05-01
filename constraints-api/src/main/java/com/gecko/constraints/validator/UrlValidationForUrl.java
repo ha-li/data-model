@@ -14,12 +14,16 @@ public class UrlValidationForUrl implements ConstraintValidator<URL, java.net.UR
    private int port;
 
    public void initialize (URL parameters) {
-      this.protocol = parameters.protocol ();
-      this.host = parameters.host ();
-      this.port = parameters.port ();
+      if(parameters != null) {
+         this.protocol = parameters.protocol ();
+         this.host = parameters.host ();
+         this.port = parameters.port ();
+      }
    }
 
    public boolean isValid (java.net.URL url, ConstraintValidatorContext context) {
+      if (url == null) return true;
+
       if (protocol != null && protocol.length () > 0) {
          if ( !url.getProtocol ().equals (protocol) ) {
             return false;

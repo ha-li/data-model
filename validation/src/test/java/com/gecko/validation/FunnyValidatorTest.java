@@ -3,6 +3,7 @@ package com.gecko.validation;
 import com.gecko.json.domain.Message;
 import org.junit.Test;
 
+import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
 
 /**
@@ -29,7 +30,15 @@ public class FunnyValidatorTest {
       // null is considered funny also
 
       Message funny = new Message ();
-      funny.setStr (null);
-      UniversalValidator.validate (funny);
+      //funny.setStr (null);
+
+      try {
+         UniversalValidator.validate (funny);
+      } catch (ConstraintViolationException e) {
+         for (ConstraintViolation violation: e.getConstraintViolations ()) {
+            System.out.println (violation.getRootBean ()  + ": " + violation.getPropertyPath () + " " + violation.getMessage ());
+         }
+         throw e;
+      }
    }
 }
