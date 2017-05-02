@@ -57,7 +57,7 @@ public class TestBean {
    @URL (protocol="http", host="my.home.com", port=80)
    private java.net.URL alternativeWeb;
 
-
+   
    public java.net.URL getAlternativeWeb () {
       return alternativeWeb;
    }
