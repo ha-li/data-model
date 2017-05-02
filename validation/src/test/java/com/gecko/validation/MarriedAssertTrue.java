@@ -13,7 +13,7 @@ public class MarriedAssertTrue {
    @Test(expected = ConstraintViolationException.class)
    public void test_married_false () {
 
-      // constraints.xml says 'married' should be true,
+      // prison-constraints.xml says 'married' should be true,
       // overriding the constraints in the bean class
       Prisoner test = new Prisoner ();
       test.setMarried(Boolean.FALSE);
@@ -29,7 +29,7 @@ public class MarriedAssertTrue {
    @Test
    public void test_married_true () {
 
-      // constraints.xml says 'married' should be true,
+      // prison-constraints.xml says 'married' should be true,
       // overriding the constraints in the bean class
       Prisoner test = new Prisoner ();
       test.setMarried(Boolean.TRUE);

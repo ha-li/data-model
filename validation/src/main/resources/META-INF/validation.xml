@@ -4,6 +4,12 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://jboss.org/xml/ns/javax/validation/configuration validation-configuration-1.1.xsd"
     version="1.1">
-    <constraint-mapping>META-INF/constraints.xml</constraint-mapping>
+    <!-- this file supports multiple constraint files -->
+    <!--
+        constraints defined in deployment descriptors will
+        override constraints annotated as meta data.
+    -->
+    <constraint-mapping>META-INF/prison-constraints.xml</constraint-mapping>
+    <constraint-mapping>META-INF/v2/married-constraints.xml</constraint-mapping>
 
 </validation-config>
