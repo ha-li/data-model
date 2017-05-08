@@ -10,6 +10,7 @@ import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.Future;
 import javax.validation.constraints.Max;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
 import java.math.BigDecimal;
@@ -57,6 +58,16 @@ public class TestBean {
    @URL (protocol="http", host="my.home.com", port=80)
    private java.net.URL alternativeWeb;
 
+   @NotNull
+   public BigDecimal calculatePrice (@DecimalMin(value="1.4") @DecimalMax(value="1.9") BigDecimal tax){
+      return pValue.multiply (tax);
+   }
+
+   // everything in the store must be less than $10.00
+   @DecimalMax(value="9.99")
+   public BigDecimal isStoreGuaranteeValid () {
+      return calculatePrice (BigDecimal.valueOf(1.4d));
+   }
 
    public java.net.URL getAlternativeWeb () {
       return alternativeWeb;
