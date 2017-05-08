@@ -1,4 +1,4 @@
-package com.gecko.validation;
+package com.gecko.validation.property;
 
 import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
@@ -8,6 +8,7 @@ import javax.validation.ValidatorFactory;
 import javax.validation.executable.ExecutableValidator;
 import javax.validation.metadata.BeanDescriptor;
 import java.io.PrintStream;
+import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
 import java.util.Set;
 
@@ -87,6 +88,28 @@ public class UniversalValidator {
       }
 
       Set<ConstraintViolation<T>> violations = methodValidator.validateReturnValue(t, method, returnValue, groups);
+      if (!violations.isEmpty() ) {
+         throw new ConstraintViolationException ("Invalid method return value. ", violations);
+      }
+   }
+
+   public static <T> void validateConstructorParameters (Constructor<? extends T> constructor, Object[] parameterValues, Class<?>... groups) {
+      if (methodValidator == null) {
+         methodValidator = forExecutables ();
+      }
+
+      Set<ConstraintViolation<T>> violations = methodValidator.validateConstructorParameters(constructor, parameterValues, groups);
+      if (!violations.isEmpty() ) {
+         throw new ConstraintViolationException ("Invalid method return value. ", violations);
+      }
+   }
+
+   public static <T> void validateConstructorReturnValue (Constructor<? extends T> constructor, T createdObject, Class<?>... groups) {
+      if (methodValidator == null) {
+         methodValidator = forExecutables ();
+      }
+
+      Set<ConstraintViolation<T>> violations = methodValidator.validateConstructorReturnValue(constructor, createdObject, groups);
       if (!violations.isEmpty() ) {
          throw new ConstraintViolationException ("Invalid method return value. ", violations);
       }

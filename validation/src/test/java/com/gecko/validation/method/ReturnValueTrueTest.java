@@ -1,5 +1,7 @@
-package com.gecko.validation;
+package com.gecko.validation.method;
 
+import com.gecko.validation.property.MockClass;
+import com.gecko.validation.property.UniversalValidator;
 import org.junit.Test;
 
 /**

@@ -11,6 +11,7 @@ import javax.validation.constraints.Digits;
 import javax.validation.constraints.Future;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Null;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
 import java.math.BigDecimal;
@@ -21,6 +22,19 @@ import java.util.List;
  * Created by hlieu on 04/28/17.
  */
 public class TestBean {
+
+   public TestBean () {}
+
+
+   public TestBean (@DecimalMax ("9.99") BigDecimal price) {
+      this.pValue = price;
+   }
+
+   @NotNull
+   public TestBean (BigDecimal minCorrelation, BigDecimal maxCorrelation) {
+
+   }
+
    @AssertFalse
    private Boolean mustBeFalse;
 

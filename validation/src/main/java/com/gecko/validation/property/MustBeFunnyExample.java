@@ -1,14 +1,12 @@
-package com.gecko.validation;
+package com.gecko.validation.property;
 
 import com.gecko.json.domain.Message;
 import com.gecko.json.unmarshaller.JsonUnMarshaller;
 
-import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
 import javax.validation.groups.Default;
 import javax.validation.metadata.BeanDescriptor;
 import java.io.IOException;
-import java.util.Set;
 
 /**
  * Created by hlieu on 04/28/17.

@@ -1,6 +1,6 @@
 package com.gecko.marshaller;
 
-import com.gecko.validation.CardValidation;
+import com.gecko.validation.property.CardValidation;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Marshaller;

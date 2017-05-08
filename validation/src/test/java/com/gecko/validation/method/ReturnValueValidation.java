@@ -1,6 +1,7 @@
-package com.gecko.validation;
+package com.gecko.validation.method;
 
 import com.gecko.test.beans.TestBean;
+import com.gecko.validation.property.UniversalValidator;
 import org.junit.Assert;
 import org.junit.Test;
 

@@ -1,11 +1,10 @@
-package com.gecko.validation;
+package com.gecko.validation.property;
 
 import com.gecko.test.beans.TestBean;
 import org.junit.Test;
 
 import javax.validation.ConstraintViolationException;
 import java.util.Calendar;
-import java.util.Date;
 
 /**
  * Created by hlieu on 04/29/17.

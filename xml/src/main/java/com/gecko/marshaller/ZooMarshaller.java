@@ -1,9 +1,6 @@
 package com.gecko.marshaller;
 
-import com.gecko.schema.zoo.v1.Animal;
-import com.gecko.schema.fintech.v1.CreditCard;
-import com.gecko.schema.zoo.v1.Inventory;
-import com.gecko.validation.ZooValidation;
+import com.gecko.validation.property.ZooValidation;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Marshaller;

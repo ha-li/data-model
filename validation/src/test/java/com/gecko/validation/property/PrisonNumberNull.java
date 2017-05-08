@@ -1,4 +1,4 @@
-package com.gecko.validation;
+package com.gecko.validation.property;
 
 import com.gecko.json.domain.PrisonCell;
 import org.junit.Test;
